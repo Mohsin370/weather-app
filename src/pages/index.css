@@ -1,4 +1,95 @@
-.weather_cards {
+p {
+    margin: 0;
+}
+
+.weather_main {
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
-    flex-wrap: wrap;
+}
+
+.temprature_container {
+    width: 60%;
+    height: 100vh;
+    color: white;
+}
+
+.container_item_temprature {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    display: flex;
+}
+
+.temprature {
+    font-size: 100px;
+    font-weight: 600;
+}
+
+.day_time {
+    padding-top: 5px;
+    padding-left: 3px;
+    font-weight: 500;
+}
+
+.city_date_container {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.weather_condition {
+    text-align: center;
+}
+
+.city {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.weather_details {
+    width: 40%;
+    background-color: grey;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+}
+
+.weather_detals_main {
+    width: 90%;
+    margin: auto;
+    display: flex;
+}
+
+.searchIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.searchBtn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.searchInput {
+    width: 90%;
+    border: none;
+    height: 60px;
+    outline: none;
+    border-radius: 2px;
+    margin: 0;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    color: white;
+    font-size: large;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1;
+    /* Firefox */
 }
