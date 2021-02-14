@@ -6,6 +6,8 @@ class Api {
         let res = Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
             .then((res) => {
                 return res.data;
+            }).catch((err) => {
+                return "Incorrect"
             })
 
         return res;

@@ -37,6 +37,13 @@ p {
 .city_date_container {
     padding-top: 20px;
     padding-left: 20px;
+    text-align: center;
+}
+
+.weather_icon_condition {
+    padding-top: 30px;
+    padding-left: 40px;
+    text-align: center;
 }
 
 .weather_condition {
@@ -45,6 +52,12 @@ p {
 
 .city {
     font-size: 40px;
+    font-weight: 600;
+}
+
+.error_message {
+    color: #ff0033;
+    padding-top: 10px;
     font-weight: 600;
 }
 
@@ -57,8 +70,16 @@ p {
 }
 
 .weather_detals_main {
-    width: 90%;
+    width: 80%;
     margin: auto;
+}
+
+.weather_icon {
+    width: 40px;
+    height: 40px;
+}
+
+.Form {
     display: flex;
 }
 
@@ -92,4 +113,32 @@ p {
     color: white;
     opacity: 1;
     /* Firefox */
+}
+
+.details-heading {
+    color: white;
+    padding-top: 50px;
+    font-weight: 500;
+    font-size: larger;
+}
+
+.details {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+.spinner {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.spinner_main {
+    background-color: #1a508b;
+    height: 100vh;
 }
