@@ -10,6 +10,7 @@ import CloudIcon from '../images/icons/cloud.png';
 import HazeIcon from '../images/icons/haze_icon.png';
 import SunIcon from '../images/icons/sun_icon.png';
 import clearIcon from '../images/icons/clear.png';
+import rainIcon from '../images/icons/rain.png';
 import SearchIcon from '../images/icons/search.png';
 import { MagicSpinner } from "react-spinners-kit";
 let latLngApi = new Api();
@@ -79,7 +80,7 @@ class Index extends Component {
         weekdays[5] = 'Friday';
         weekdays[6] = 'Saturday';
         let backgroundImage, icon;
-        if (weatherStatus.weather[0].main === "Haze" || weatherStatus.weather[0].main === "Smoke" || weatherStatus.weather[0].main === "Mist") {
+        if (weatherStatus.weather[0].main === "Haze" || weatherStatus.weather[0].main === "Smoke" || weatherStatus.weather[0].main === "Mist"|| weatherStatus.weather[0].main === "Fog") {
             backgroundImage = HazeImage;
             icon = HazeIcon;
         } else if (weatherStatus.weather[0].main === "Sunny") {
@@ -87,7 +88,7 @@ class Index extends Component {
             icon = SunIcon;
         } else if (weatherStatus.weather[0].main === "Rain") {
             backgroundImage = rainImage;
-            icon = SunIcon;
+            icon = rainIcon;
         } else if (weatherStatus.weather[0].main === "Clouds") {
             backgroundImage = cloudImage;
             icon = CloudIcon;
