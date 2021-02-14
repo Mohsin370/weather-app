@@ -11,15 +11,9 @@ import HazeIcon from '../images/icons/haze_icon.png';
 import SunIcon from '../images/icons/sun_icon.png';
 import clearIcon from '../images/icons/clear.png';
 import SearchIcon from '../images/icons/search.png';
-
-
 import { MagicSpinner } from "react-spinners-kit";
-
-
 let latLngApi = new Api();
-
 class Index extends Component {
-
     state = {
         currentWeatherBasic: {
             weather_details: [{}]
@@ -28,19 +22,12 @@ class Index extends Component {
         displaError: false,
         LoadSpinner: true,
     }
-
-
     componentDidMount() {
         this.getCurrentWeatherByLoc();
     }
-
     getCurrentWeatherByLoc = () => {
-
         let weatherStatus = ""
-
-
         let promise = new Promise((res, rej) => {
-
             navigator.geolocation.getCurrentPosition(async function (position) {
                 weatherStatus = await latLngApi.weather_by_Cords(position.coords.latitude, position.coords.longitude);
                 res(weatherStatus);
@@ -49,13 +36,9 @@ class Index extends Component {
         promise.then((res) => {
             let result = this.calculateWeather(res);
             this.setState({LoadSpinner:false})
-
             this.setState({ currentWeatherBasic: result })
-
         })
     }
-
-
     getWeatherbyCity = (e) => {
         if (e.key === "Enter" || e.type === "click") {
             let promise = new Promise(async (res, rej) => {
@@ -80,13 +63,9 @@ class Index extends Component {
                         this.setState({ displaError: true })
                     }
                 }
-
             })
         }
-
-
     }
-
 
     calculateWeather = (weatherStatus) => {
 
@@ -99,12 +78,6 @@ class Index extends Component {
         weekdays[4] = 'Thursday';
         weekdays[5] = 'Friday';
         weekdays[6] = 'Saturday';
-
-
-
-
-
-        // weatherStatus.weather[0].main ="Clouds";
         let backgroundImage, icon;
         if (weatherStatus.weather[0].main === "Haze" || weatherStatus.weather[0].main === "Smoke" || weatherStatus.weather[0].main === "Mist") {
             backgroundImage = HazeImage;
@@ -126,11 +99,10 @@ class Index extends Component {
             { title: "Description", value: weatherStatus.weather[0].description },
             { title: "Humidity", value: weatherStatus.main.humidity },
             { title: "Pressure", value: weatherStatus.main.pressure },
-            { title: "Max Temprature", value: weatherStatus.main.temp_max },
-            { title: "Min Temprature", value: weatherStatus.main.temp_min },
-            { title: "Feels Like", value: weatherStatus.main.feels_like },
+            { title: "Max Temprature", value: (Math.round(weatherStatus.main.temp_max - 273.15))+" C" },
+            { title: "Min Temprature", value: (Math.round(weatherStatus.main.temp_min - 273.15))+" C" },
+            { title: "Feels Like", value: (Math.round(weatherStatus.main.feels_like - 273.15))+" C" },
             { title: "Wind Speed", value: weatherStatus.wind.speed },
-
         ]
 
         let currentWeather = {
@@ -147,7 +119,6 @@ class Index extends Component {
         }
         return currentWeather;
     }
-
     render() {
         return (
             <div>
@@ -157,11 +128,8 @@ class Index extends Component {
                             <MagicSpinner size={150} color="#1687a7" loading={this.state.LoadSpinner} />
                         </div>
                     </div>
-
                     :
-
                     <div className="weather_main" style={{ backgroundImage: `url(${this.state.currentWeatherBasic.backgroundImage})` }}>
-
                         <div className="temprature_container">
                             <div className="container_item_temprature">
                                 <p className="temprature">{this.state.currentWeatherBasic.tempInCel}
@@ -179,8 +147,6 @@ class Index extends Component {
                                 </div>
                             </div>
                         </div>
-
-
                         <div className="weather_details">
 
                             <div className="weather_detals_main">
@@ -210,7 +176,6 @@ class Index extends Component {
                     </div>
                 }
             </div>
-
         )
     }
 }
