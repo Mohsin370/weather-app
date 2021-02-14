@@ -106,7 +106,7 @@ class Index extends Component {
 
         // weatherStatus.weather[0].main ="Clouds";
         let backgroundImage, icon;
-        if (weatherStatus.weather[0].main === "Haze" || weatherStatus.weather[0].main === "Smoke") {
+        if (weatherStatus.weather[0].main === "Haze" || weatherStatus.weather[0].main === "Smoke" || weatherStatus.weather[0].main === "Mist") {
             backgroundImage = HazeImage;
             icon = HazeIcon;
         } else if (weatherStatus.weather[0].main === "Sunny") {
